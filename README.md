@@ -6,3 +6,8 @@ query params-
     page-page no
     limit-items per page
     search- search query to search among videos
+
+Note - 
+  The Api is already hosted so no need to run the server locally
+  I have used 'football' as the search query to fetch data from youtube data API.
+  
