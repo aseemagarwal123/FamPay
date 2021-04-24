@@ -1,7 +1,7 @@
 # FamPay
 
 Get APi for getting results and also passing search string to the same
-URL- https://fampay-assign.herokuapp.com/api/v1/video/fetch/getAll\
+URL- https://fampay-assign.herokuapp.com/api/v1/video/fetch/getAll
 query params -
 
     page-page no
@@ -15,6 +15,7 @@ For ease this is the postman collection link -https://www.getpostman.com/collect
 URl to check dashboard - https://wizardly-stonebraker-ad7785.netlify.app/\
 
 Note - 
+
   The Api is already hosted so no need to run the server locally\
 
   I have used 'football' as the search query to fetch data from youtube data API.\
