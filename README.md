@@ -26,5 +26,7 @@ Note -
     Optimise search api, so that it's able to search videos containing partial match for the search query in either video title or description
     
     
-    The first one I am a little confused as I read about qouta limit that its on a project not on a key so key rotation wont help I think unless its of different       projects thiough I thought of one approach of saving multiple keys in DB from different projects and using them accordingly 
+    The first one I am a little confused as I read about qouta limit that its on a project not on a key so key rotation wont help 
+    I think unless its of different projects thiough I thought of one approach of saving multiple keys in DB from different 
+    projects and use them accordingly
   
