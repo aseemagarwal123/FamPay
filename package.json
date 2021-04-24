@@ -26,6 +26,7 @@
     "googleapis": "^72.0.0",
     "http-errors": "^1.7.3",
     "https": "^1.0.0",
+    "install": "^0.13.0",
     "jimp": "^0.8.5",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",

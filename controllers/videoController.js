@@ -20,8 +20,8 @@ async function videoInsertMany(items) {
         })
         let multipleVideos = await video.insertMany(videoArray);
         console.log(multipleVideos)
-    } catch (ex) {
-        next(ex)
+    } catch (err) {
+      logger.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
     }
 }
 

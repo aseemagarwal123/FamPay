@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(err, req, res, next) {
-  console.log(err);
+  logger.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
   return res.status(err.status || 500).send({'message': err.message || 'Internal Server Error'});
 });
 
@@ -68,11 +68,11 @@ async function main() {
   if(res.data.nextPageToken){
     cache.set("token", {'token':res.data.nextPageToken}, 10000);
   }
-  //videoInsertMany(res.data.items);
+  videoInsertMany(res.data.items);
 };
 
   
-// cron.schedule('*/2 * * * *', () => {
-//   main().catch(console.error);
-// });
+cron.schedule('*/2 * * * *', () => {
+  main().catch(console.error);
+});
 module.exports = app;
