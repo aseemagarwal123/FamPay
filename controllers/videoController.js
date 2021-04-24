@@ -32,6 +32,7 @@ async function videoGetAll(req, res, next) {
     const limit = Number(req.query.limit) || 10;
     try {
      query={};
+     //full text search query
      if(req.query.search) {
         query = {$text:{$search:req.query.search,$caseSensitive:false}};
      } 

@@ -14,7 +14,7 @@ const NodeCache = require( "node-cache" );
 const cache = new NodeCache();
 
 
-
+//json parsing of the logs.
 app.use(morgan(function(tokens, req, res) {
   return JSON.stringify({
     'remote-address': tokens['remote-addr'](req, res),
@@ -45,11 +45,12 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(err, req, res, next) {
+  //logger to log request
   logger.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
   return res.status(err.status || 500).send({'message': err.message || 'Internal Server Error'});
 });
 
-async function main() {
+async function retrieveData() {
   var query = {
     part: 'id,snippet',
     q: 'football',
@@ -57,6 +58,7 @@ async function main() {
     type: ["video"],
     publishedAfter: "2021-03-22T19:18:44.335Z" 
   }
+  // cache next page token to use in next request call to avoid duplicate data
   var cacheData = cache.get("token");
   if (cacheData != undefined){
     query.pageToken = cacheData.token;
@@ -71,8 +73,8 @@ async function main() {
   videoInsertMany(res.data.items);
 };
 
-  
-cron.schedule('*/2 * * * *', () => {
-  main().catch(console.error);
+//cron job to insert video data in db
+cron.schedule('*/10 * * * *', () => {
+  retrieveData().catch(console.error);
 });
 module.exports = app;

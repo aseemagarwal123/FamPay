@@ -19,6 +19,7 @@ var videoSchema = new mongoose.Schema({
 });
 
 videoSchema.plugin(timestamps);
+//created index to query for full text search results
 videoSchema.index({'$**': 'text'});
 const video = mongoose.model('video', videoSchema);
 exports.video = video;
