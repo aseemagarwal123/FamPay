@@ -7,7 +7,7 @@ query params-
     limit-items per page
     search- search query to search among videos
 For ease this is the postman collection link -https://www.getpostman.com/collections/79fdab0daf0ceaf4ab73
-URl to check dashboard - https://pensive-goldberg-426bb8.netlify.app/
+URl to check dashboard - https://wizardly-stonebraker-ad7785.netlify.app/
 
 Note - 
   The Api is already hosted so no need to run the server locally
